@@ -1,2 +1,2 @@
-import cartManager from "./";
+import cartManager from "./src";
 export default cartManager;
