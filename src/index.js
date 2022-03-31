@@ -47,6 +47,14 @@ class CartManager {
       });
   }
 
+  _getProductById(productId) {
+    return this.cartItems.find((item) => item.id === productId);
+  }
+
+  _formatPrice(amount) {
+    return +amount.toFixed(2);
+  }
+
   push() {}
 
   update() {}
