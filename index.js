@@ -1,4 +1,4 @@
-import PouchDB from "pouchdb";
+const PouchDB = require("pouchdb");
 class CartManager {
   constructor(dbName) {
     this._db = new PouchDB(dbName);
