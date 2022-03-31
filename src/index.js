@@ -55,7 +55,23 @@ class CartManager {
     return +amount.toFixed(2);
   }
 
-  push() {}
+  push(product) {
+    const existingProduct = this._getProductById(product.id);
+
+    if (existingProduct) {
+      return this.update(
+        existingProduct.id,
+        existingProduct.quantity + product.quantity
+      );
+    }
+
+    return this._db
+      .post(product)
+      .then(() => this.getCart())
+      .catch((error) => {
+        return console.error(error);
+      });
+  }
 
   update() {}
 
