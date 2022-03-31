@@ -97,7 +97,21 @@ class CartManager {
     return this.totalQuantity;
   }
 
-  remove() {}
+  remove(productId) {
+    const existingProduct = this._getProductById(productId);
+    if (existingProduct) {
+      return this._db
+        .remove(existingProduct)
+        .then(() => this.getCart())
+        .catch((error) => console.error(error));
+    }
+  }
+
+  clear() {
+    return Promise.all(this.cartItems.map((item) => this._db.remove(item)))
+      .then(() => this.getCart())
+      .catch((error) => console.error(error));
+  }
 }
 
 module.exports = CartManager;
