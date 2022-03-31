@@ -1,4 +1,4 @@
-const PouchDB = require("pouchdb");
+const PouchDB = require("pouchdb").default;
 class CartManager {
   constructor(dbName) {
     this._db = new PouchDB(dbName);
