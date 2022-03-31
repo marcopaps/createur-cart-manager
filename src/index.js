@@ -91,6 +91,12 @@ class CartManager {
     }
   }
 
+  async getTotalQuantity() {
+    // I intentionally add this as a utilty method to just
+    // get cart total qty and avoid getting all cart data
+    return this.totalQuantity;
+  }
+
   remove() {}
 }
 
