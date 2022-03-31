@@ -1,6 +1,6 @@
 {
   "name": "createur-cart-manager",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "cart manager",
   "main": "index.js",
   "scripts": {
