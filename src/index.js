@@ -73,7 +73,23 @@ class CartManager {
       });
   }
 
-  update() {}
+  update(productId, quantity) {
+    const existingProduct = this._getProductById(productId);
+
+    if (existingProduct) {
+      return this._db
+        .put({
+          ...existingProduct,
+          quantity: quantity,
+          _id: existingProduct._id,
+          _rev: existingProduct._rev,
+        })
+        .then(() => this.getCart())
+        .catch((error) => {
+          return console.error(error);
+        });
+    }
+  }
 
   remove() {}
 }
