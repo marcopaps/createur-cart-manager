@@ -1,5 +1,6 @@
-const PouchDB = require("pouchdb").default;
-class CartManager {
+import PouchDB from "pouchdb";
+
+export default class CartManager {
   constructor(dbName) {
     this._db = new PouchDB(dbName);
     this.cartItems = [];
@@ -113,5 +114,3 @@ class CartManager {
       .catch((error) => console.error(error));
   }
 }
-
-module.exports = CartManager;
